@@ -445,6 +445,9 @@ if(${CMAKE_VERSION} VERSION_GREATER_EQUAL "3.20.0")
 	cmake_policy(SET CMP0116 OLD)
 endif()
 
+# add volk definations
+target_compile_definitions(ffx_backend_vk_${FFX_PLATFORM_NAME} PRIVATE VK_USE_PLATFORM_WIN32_KHR)
+
 # add pass shaders for all the components
 if (FFX_FSR1 OR FFX_ALL)
 	target_compile_definitions(ffx_backend_vk_${FFX_PLATFORM_NAME} PRIVATE FFX_FSR1)
