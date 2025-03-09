@@ -27,7 +27,7 @@
 
 #pragma once
 
-#include <vulkan/vulkan.h>
+#include "volk/volk.h"
 #include <FidelityFX/host/ffx_interface.h>
 
 #if defined(__cplusplus)

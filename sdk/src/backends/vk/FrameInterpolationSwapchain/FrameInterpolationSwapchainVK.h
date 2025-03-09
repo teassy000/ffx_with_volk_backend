@@ -26,7 +26,7 @@
 #define VK_USE_PLATFORM_WIN32_KHR
 #endif  // _WIN32
 
-#include <vulkan/vulkan.h>
+#include "volk/volk.h"
 
 #include <atomic>
 #include <cstdint>

@@ -54,6 +54,8 @@ file(GLOB PRIVATE_SOURCE
     "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/FrameInterpolationSwapchain/*.h"
     "${CMAKE_CURRENT_SOURCE_DIR}/FrameInterpolationSwapchain/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/volk/*.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/volk/*.h"
 )
 
 if (FFX_FSR1 OR FFX_ALL)

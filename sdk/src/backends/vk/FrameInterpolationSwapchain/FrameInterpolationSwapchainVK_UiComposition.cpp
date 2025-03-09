@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#include <vulkan/vulkan.h>
+#include "volk/volk.h"
 #include "FrameInterpolationSwapchainVK_Helpers.h"
 #include "FrameInterpolationSwapchainVK_UiComposition.h"
 

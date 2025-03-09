@@ -33,7 +33,7 @@
 #include <codecvt>  // this is deprecated so it's just a fallback solution
 #endif  // _WIN32
 
-#include <vulkan/vulkan.h>
+
 
 // prototypes for functions in the interface
 FfxVersionNumber       GetSDKVersionVK(FfxInterface* backendInterface);

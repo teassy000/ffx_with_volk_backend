@@ -22,7 +22,7 @@
 
 #pragma once
 
-#include <vulkan/vulkan.h>
+#include "volk/volk.h"
 
 #include <FidelityFX/host/ffx_assert.h>
 #include <FidelityFX/host/backends/vk/ffx_vk.h>
