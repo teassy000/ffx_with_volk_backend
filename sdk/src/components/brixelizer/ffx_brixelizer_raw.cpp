@@ -1642,7 +1642,7 @@ static FfxErrorCode brixelizerDispatchDebugVisualization(FfxBrixelizerRawContext
             updateConstantBuffer(context, FFX_BRIXELIZER_CONSTANTBUFFER_IDENTIFIER_DEBUG_INFO, &debugInfo);
 
             size_t instanceIDBufferSize = debugVisualizationDescription->numDebugAABBInstanceIDs * sizeof(FfxBrixelizerInstanceID);
-            uint32_t offset = copyToUploadBuffer(context, FFX_BRIXELIZER_RESOURCE_IDENTIFIER_UPLOAD_DEBUG_INSTANCE_ID_BUFFER, (void*)debugVisualizationDescription->debugAABBInstanceIDs, instanceIDBufferSize);
+            uint32_t offset = copyToUploadBuffer(context, FFX_BRIXELIZER_RESOURCE_IDENTIFIER_UPLOAD_DEBUG_INSTANCE_ID_BUFFER, (void*)debugVisualizationDescription->debugAABBInstanceIDs, instanceIDBufferSize, alignUp(instanceIDBufferSize));
 
             setSRVBindingInfo(context, FFX_BRIXELIZER_RESOURCE_IDENTIFIER_UPLOAD_DEBUG_INSTANCE_ID_BUFFER, offset, instanceIDBufferSize, sizeof(FfxBrixelizerInstanceID));
 
@@ -1704,9 +1704,9 @@ static void brixelizerFlushInstances(FfxBrixelizerRawContext_Private* context, F
 
         // Copy into mapped pointer of staging buffer
         uint32_t instanceInfoOffset =
-            copyToUploadBuffer(context, FFX_BRIXELIZER_RESOURCE_IDENTIFIER_UPLOAD_INSTANCE_INFO_BUFFER, &instanceInfo, sizeof(instanceInfo));
+            copyToUploadBuffer(context, FFX_BRIXELIZER_RESOURCE_IDENTIFIER_UPLOAD_INSTANCE_INFO_BUFFER, &instanceInfo, sizeof(instanceInfo), alignUp(sizeof(instanceInfo)));
         uint32_t instanceTransformOffset =
-            copyToUploadBuffer(context, FFX_BRIXELIZER_RESOURCE_IDENTIFIER_UPLOAD_INSTANCE_TRANSFORM_BUFFER, &transform, sizeof(transform));
+            copyToUploadBuffer(context, FFX_BRIXELIZER_RESOURCE_IDENTIFIER_UPLOAD_INSTANCE_TRANSFORM_BUFFER, &transform, sizeof(transform), alignUp(sizeof(transform)));
 
         scheduleCopy(context,
                      context->resources[FFX_BRIXELIZER_RESOURCE_IDENTIFIER_UPLOAD_INSTANCE_INFO_BUFFER],
